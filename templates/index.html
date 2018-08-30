@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="{{ url_for('static', filename='js/jquery-3.3.1.min.js') }}"></script>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+</head>
+<body>
+    
+
+    <h2>Hello to main</h2>
+    <form action="/" method="post">
+        <p><textarea name="orders" id="ta_orders" cols="30" rows="10"></textarea></p>
+        <p><textarea name="stags" id="ta_stags" cols="30" rows="10"></textarea></p>
+        <input type="checkbox" name="chb1" id="chb1" checked><label for="chb1">Cancel</label><br>
+        <input type="checkbox" name="chb2" id="chb2"><label for="chb2">Strip Down</label><br>
+        <p><input type="submit" value="Run Script" id="button1"></form></p>
+    </form>
+    <p>
+        {% if log %}
+            <h3>Data file length: {{ log[1] }}</h3>
+            <h4>Last log line: {{ log[0][log[1]-1]}}</h4>
+            <h4>Orders: {{ log[2] }}</h4>
+            <h5>Checkboxes: CheckBox1 is {{ chb[0] }}, CheckBox2 is {{ chb[1] }}</h5>
+        {% endif %}
+    </p>
+
+    <div class="loader">
+        <img src="{{ url_for('static', filename='pics/loader2.gif') }}" alt="">
+        <p>PLEASE STAND BY ... </p>
+    </div>
+
+    <script type=text/javascript>
+    $('#button1').click(function() {
+        $('.loader').show();
+    });
+
+    //keep at leat 1 checkbox checked
+    $('#chb1').click(function(){
+        if(!$('#chb1').is(':checked') && !$('#chb2').is(':checked')) {
+            alert('Please select at least one option');
+            $('#chb1').prop('checked',true)
+        }
+    });
+
+    $('#chb2').click(function(){
+        if(!$('#chb1').is(':checked') && !$('#chb2').is(':checked')) {
+            alert('Please select at least one option');
+            $('#chb2').prop('checked',true)
+        }
+
+        if($('#chb2').is(':checked')) {
+            $('#ta_stags').show();
+        }
+        else {
+            $('#ta_stags').hide();
+        }
+        
+    });
+
+    </script>
+</body>
+</html>
