@@ -2,6 +2,14 @@ body {
   font-size: .875rem;
 }
 
+.dropdown-item {
+  color: #999;
+}
+.dropdown-item:focus, .dropdown-item:hover {
+  background-color: #454a5091;
+  color: #999;
+}
+
 .feather {
   width: 16px;
   height: 16px;
@@ -40,7 +48,7 @@ body {
 
 .sidebar .nav-link {
   font-weight: 500;
-  color: #333;
+  color: rgb(255, 254, 254);
 }
 
 .sidebar .nav-link .feather {
@@ -49,7 +57,7 @@ body {
 }
 
 .sidebar .nav-link.active {
-  color: #007bff;
+  color: #ffffff;
 }
 
 .sidebar .nav-link:hover .feather,
@@ -78,8 +86,8 @@ body {
   padding-top: .75rem;
   padding-bottom: .75rem;
   font-size: 1rem;
-  background-color: rgba(0, 0, 0, .25);
-  box-shadow: inset -1px 0 0 rgba(0, 0, 0, .25);
+  background-color: rgba(44, 42, 129, 0.25);
+  box-shadow: inset -1px 0 0 rgba(61, 18, 100, 0.25);
 }
 
 .navbar .form-control {
