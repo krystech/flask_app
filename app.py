@@ -50,5 +50,13 @@ def hello():
     f.close()
     return render_template("log.html",log=log_lines)
 
+@app.route("/dash")
+def show_dash():
+    return render_template("dash_main.html")
+
+@app.route("/powners")
+def ap_cjowners():
+    return render_template("ap_chowner.html")
+
 if __name__ == '__main__':
    app.run(debug=True)
